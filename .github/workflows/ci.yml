@@ -16,7 +16,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Docs
         run: |
-          ls
           asciidoctor index.adoc
           find . -name .adoc -exec rm -rf '{}' \;
 
