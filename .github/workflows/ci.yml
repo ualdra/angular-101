@@ -14,6 +14,12 @@ jobs:
     container: asciidoctor/docker-asciidoctor
     steps:
       - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apk update
+          sudo apk add rsync 
+
       - name: Build Docs
         run: |
           asciidoctor index.adoc
