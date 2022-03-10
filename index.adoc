@@ -1,0 +1,158 @@
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:doctype: book
+:imagesdir: ./images
+:source-highlighter: rouge
+
+////
+Nombre - Titulo
+////
+# Angular
+Iniciación a Angular
+Paco García <paco.garcia@ual.es>
+
+image::angular-logo-png.png[]
+
+// Modo no numerado de apartados
+:numbered!: 
+
+
+[abstract]
+== Resumen
+
+Angular se ha convertido en uno de los frameworks más populares. Entre sus grandes ventajas destacan el desarollo basado componentes y su polivalencia para desarrollo web y móvil.
+
+En este tutorial se aborda un primer acercamiento a este framework que incluye la preparación del entorno de desarrollo y la realización de parte del famoso tutorial *Tour of Heroes*.
+
+.Objetivos
+
+* Conocer el framework Angular.
+* Preparar un entorno para trabajar con Angular
+* Conocer los conceptos de Módulos, Componentes, Servicios y Directivas.
+* Dar formato a datos con Pipes (Tuberias).
+* Utilizar enrutamiento para navegar entre diferentes vistas y sus componentes.
+* Realizar enlaces de datos y eventos.
+
+// Modo numerado
+:numbered:
+== Introducción 
+
+Angular es un framework de desarrollo web frontend basado en componentes. Es decir todos y cada uno de los artefactos generados cuando trabajamos con este framework es denominado *componente*. 
+
+Este framework hace uso del stack tecnológico estandard en la “world wide web”.
+
+* Las *plantillas* de los componentes están hechas en *HTML5*.
+* La *apariencia* de los componentes se define con *CSS3*.
+* El *comportamiento* de los componentes se escribe en *Javascript*.
+
+El framework hace uso principalmente de JavaScript, mejor dicho de un subset de instrucciones de JavaScript desarrollado por *Microsoft* denominado *TypeScript*. 
+
+[NOTE]
+====
+En la https://angular.io/docs[Documentación oficial de Angular] podéis encontrar referencias sobre el framework así como una serie de tutoriales muy interesantes.
+====
+
+=== Preparando la máquina
+
+Lo primero es comprobar que tenéis instalado y funcionando el siguiente Software.
+
+*	Git.
+* Visual Studio Code.
+
+[NOTE]
+====
+Para la realización del tutorial no son necesarias, pero es interesante que estas herramientas básicas estén instaladas.
+====
+
+== Desarrollo
+=== Instalación de Node.js
+
+Aunque las aplicaciones Angular están hechas en HTML5, CSS3 y Javascript, para su construcción se utilizan herramientas que necesitan *Node.js* para funcionar.
+
+Podemos descargar e instalar cualquier versión desde el siguiente enlace:
+
+https://nodejs.org/es/download/[Página de descarga de Node.js]
+
+[TIP]
+====
+Se recomienda utilizar una versión *LTS (Long Time Support)* porque tienen soporte durante varios años.
+====
+
+Desde la linea de comandos podemos comprobar si esta correctamente instalado.
+
+[source,bash]
+----
+$ node --version
+v16.14.0
+----
+
+=== Instalación del Cliente de Angular
+
+Utilizarás el Cliente (CLI) de Angular para crear proyectos, generar código de aplicaciones y bibliotecas, y realizar una variedad de tareas de desarrollo, como pruebas, empaquetado y despliegue.
+
+Para instalar el CLI de Angular, abre una terminal y ejecuta el siguiente comando:
+
+[source]
+----
+$ npm install -g @angular/cli
+----
+
+Y comprobar que esta correctamente instalado con:
+
+[source]
+----
+$ ng --version
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+----
+
+=== Instalación de Plugins de Angular para Visual Studio Code (Opcional)
+
+Para trabajar con Angular en Visual Studio Code vamos a instalar un conjunto de extensiones que nos hagan más facil la vida.
+
+Para ello visitamos la página https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials para instalar las Angular Essentials (Version 12) de https://www.johnpapa.net/[John Papa].
+
+image::angular-essentials.png[]
+
+Pulsaremos en `Install` para incorporar las siguientes extensiones:
+
+* Angular Snippets
+* Angular Language Service	
+* Angular Console	
+* Chrome Debugger	
+* Edge Debugger	
+* Editor Config	
+* ESlint	
+* Material Icon Theme	
+* npm	
+* Peacock	
+* Prettier	
+* Winter is Coming
+
+=== Tutorial: Tour of Heroes
+
+Este tutorial ha sido elaborado y mejorado desde la versión 2 de Angular, por lo que es uno de los mejores recursos para aprender Angular. Nosotros lo utilizaremos también como base para los proyectos que realizaremos.
+
+image::https://angular.io/generated/images/guide/toh/nav-diagram.png[]
+
+Se trata de una aplicación que permite gestionar un listado de héroes y verlos en detalle. Empezaremos con los héroes que se transformarán al dominio de los diferentes proyectos.
+
+El tutorial se encuentra en https://angular.io/tutorial
+
+== Actividades
+
+=== Realizar la primera parte del Tour of Heroes
+
+Se trata de realizar el tutorial hasta la sección `5. Add Navigation` incluida.
+
+=== Añadir un listado de super poderes a los héroes
+
+Se trata de añadir un listado editable de super poderes en la ficha de cada héroe.
+
