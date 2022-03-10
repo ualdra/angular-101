@@ -17,8 +17,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apk update
-          sudo apk add rsync 
+          apk update
+          apk add rsync 
 
       - name: Build Docs
         run: |
