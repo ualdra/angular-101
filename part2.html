@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<meta name="author" content="Iniciación a Angular">
-<title>Angular</title>
+<meta name="author" content="Servicios HTTP">
+<title>Angular + Spring Boot + REST</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -654,32 +654,24 @@ pre.rouge {
 </head>
 <body class="book toc2 toc-right">
 <div id="header">
-<h1>Angular</h1>
+<h1>Angular + Spring Boot + REST</h1>
 <div class="details">
-<span id="author" class="author">Iniciación a Angular</span><br>
+<span id="author" class="author">Servicios HTTP</span><br>
 <span id="revdate">Paco García &lt;paco.garcia@ual.es&gt;</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Tabla de contenidos</div>
 <ul class="sectlevel1">
 <li><a href="#_resumen">Resumen</a></li>
-<li><a href="#_introducción">1. Introducción</a>
+<li><a href="#_desarrollo">1. Desarrollo</a>
 <ul class="sectlevel2">
-<li><a href="#_preparando_la_máquina">1.1. Preparando la máquina</a></li>
+<li><a href="#_tutorial_tour_of_heroes">1.1. Tutorial: Tour of Heroes</a></li>
 </ul>
 </li>
-<li><a href="#_desarrollo">2. Desarrollo</a>
+<li><a href="#_actividades">2. Actividades</a>
 <ul class="sectlevel2">
-<li><a href="#_instalación_de_node_js">2.1. Instalación de Node.js</a></li>
-<li><a href="#_instalación_del_cliente_de_angular">2.2. Instalación del Cliente de Angular</a></li>
-<li><a href="#_instalación_de_plugins_de_angular_para_visual_studio_code_opcional">2.3. Instalación de Plugins de Angular para Visual Studio Code (Opcional)</a></li>
-<li><a href="#_tutorial_tour_of_heroes">2.4. Tutorial: Tour of Heroes</a></li>
-</ul>
-</li>
-<li><a href="#_actividades">3. Actividades</a>
-<ul class="sectlevel2">
-<li><a href="#_realizar_la_primera_parte_del_tour_of_heroes">3.1. Realizar la primera parte del Tour of Heroes</a></li>
-<li><a href="#_añadir_un_listado_de_super_poderes_a_los_héroes">3.2. Añadir un listado de super poderes a los héroes</a></li>
+<li><a href="#_realizar_la_sección_get_data_from_a_server_del_tour_of_heroes">2.1. Realizar la sección <code>Get Data from a Server</code> del Tour of Heroes</a></li>
+<li><a href="#_obtener_la_imagen_de_los_super_héroes_de_la_api_de_marvel">2.2. Obtener la imagen de los super héroes de la api de Marvel.</a></li>
 </ul>
 </li>
 </ul>
@@ -690,7 +682,7 @@ pre.rouge {
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="./images/angular-logo-png.png" alt="angular logo png">
+<img src="./images/rest.webp" alt="rest">
 </div>
 </div>
 </div>
@@ -699,61 +691,27 @@ pre.rouge {
 <h2 id="_resumen">Resumen</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Angular se ha convertido en uno de los frameworks más populares. Entre sus grandes ventajas destacan el desarollo basado componentes y su polivalencia para desarrollo web y móvil.</p>
-</div>
-<div class="paragraph">
-<p>En este tutorial se aborda un primer acercamiento a este framework que incluye la preparación del entorno de desarrollo y la realización de parte del famoso tutorial <strong>Tour of Heroes</strong>.</p>
+<p>En este tutorial se explica como añadir persistencia de los datos del famoso tutorial <strong>Tour of Heroes</strong> con un backend en <strong>Spring Boot</strong>.</p>
 </div>
 <div class="ulist">
 <div class="title">Objetivos</div>
 <ul>
 <li>
-<p>Conocer el framework Angular.</p>
+<p>Conocer los servicios HTTP en Angular.</p>
 </li>
 <li>
-<p>Preparar un entorno para trabajar con Angular</p>
+<p>Añadir, editar y borrar heroes a través de HTTP.</p>
 </li>
 <li>
-<p>Conocer los conceptos de Módulos, Componentes, Servicios y Directivas.</p>
-</li>
-<li>
-<p>Dar formato a datos con Pipes (Tuberias).</p>
-</li>
-<li>
-<p>Utilizar enrutamiento para navegar entre diferentes vistas y sus componentes.</p>
-</li>
-<li>
-<p>Realizar enlaces de datos y eventos.</p>
+<p>Conectar una aplicación Angular con un backend Spring Boot.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_introducción">1. Introducción</h2>
+<h2 id="_desarrollo">1. Desarrollo</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Angular es un framework de desarrollo web frontend basado en componentes. Es decir todos y cada uno de los artefactos generados cuando trabajamos con este framework es denominado <strong>componente</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Este framework hace uso del stack tecnológico estandard en la “world wide web”.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Las <strong>plantillas</strong> de los componentes están hechas en <strong>HTML5</strong>.</p>
-</li>
-<li>
-<p>La <strong>apariencia</strong> de los componentes se define con <strong>CSS3</strong>.</p>
-</li>
-<li>
-<p>El <strong>comportamiento</strong> de los componentes se escribe en <strong>Javascript</strong>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>El framework hace uso principalmente de JavaScript, mejor dicho de un subset de instrucciones de JavaScript desarrollado por <strong>Microsoft</strong> denominado <strong>TypeScript</strong>.</p>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -762,170 +720,14 @@ pre.rouge {
 </td>
 <td class="content">
 <div class="paragraph">
-<p>En la <a href="https://angular.io/docs">Documentación oficial de Angular</a> podéis encontrar referencias sobre el framework así como una serie de tutoriales muy interesantes.</p>
+<p>Para la realización del tutorial es necesaria tener hechas las actividades de Angular y Spring Boot.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_preparando_la_máquina">1.1. Preparando la máquina</h3>
-<div class="paragraph">
-<p>Lo primero es comprobar que tenéis instalado y funcionando el siguiente Software.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Git.</p>
-</li>
-<li>
-<p>Visual Studio Code.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Para la realización del tutorial no son necesarias, pero es interesante que estas herramientas básicas estén instaladas.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_desarrollo">2. Desarrollo</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_instalación_de_node_js">2.1. Instalación de Node.js</h3>
-<div class="paragraph">
-<p>Aunque las aplicaciones Angular están hechas en HTML5, CSS3 y Javascript, para su construcción se utilizan herramientas que necesitan <strong>Node.js</strong> para funcionar.</p>
-</div>
-<div class="paragraph">
-<p>Podemos descargar e instalar cualquier versión desde el siguiente enlace:</p>
-</div>
-<div class="paragraph">
-<p><a href="https://nodejs.org/es/download/">Página de descarga de Node.js</a></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Se recomienda utilizar una versión <strong>LTS (Long Time Support)</strong> porque tienen soporte durante varios años.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Desde la linea de comandos podemos comprobar si esta correctamente instalado.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="nv">$ </span>node <span class="nt">--version</span>
-v16.14.0</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_instalación_del_cliente_de_angular">2.2. Instalación del Cliente de Angular</h3>
-<div class="paragraph">
-<p>Utilizarás el Cliente (CLI) de Angular para crear proyectos, generar código de aplicaciones y bibliotecas, y realizar una variedad de tareas de desarrollo, como pruebas, empaquetado y despliegue.</p>
-</div>
-<div class="paragraph">
-<p>Para instalar el CLI de Angular, abre una terminal y ejecuta el siguiente comando:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code>$ npm install -g @angular/cli</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Y comprobar que esta correctamente instalado con:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code>$ ng --version
-
-     _                      _                 ____ _     ___
-    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
- /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-                |___/</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_instalación_de_plugins_de_angular_para_visual_studio_code_opcional">2.3. Instalación de Plugins de Angular para Visual Studio Code (Opcional)</h3>
-<div class="paragraph">
-<p>Para trabajar con Angular en Visual Studio Code vamos a instalar un conjunto de extensiones que nos hagan más facil la vida.</p>
-</div>
-<div class="paragraph">
-<p>Para ello visitamos la página <a href="https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials" class="bare">https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials</a> para instalar las Angular Essentials (Version 12) de <a href="https://www.johnpapa.net/">John Papa</a>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/angular-essentials.png" alt="angular essentials">
-</div>
-</div>
-<div class="paragraph">
-<p>Pulsaremos en <code>Install</code> para incorporar las siguientes extensiones:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Angular Snippets</p>
-</li>
-<li>
-<p>Angular Language Service</p>
-</li>
-<li>
-<p>Angular Console</p>
-</li>
-<li>
-<p>Chrome Debugger</p>
-</li>
-<li>
-<p>Edge Debugger</p>
-</li>
-<li>
-<p>Editor Config</p>
-</li>
-<li>
-<p>ESlint</p>
-</li>
-<li>
-<p>Material Icon Theme</p>
-</li>
-<li>
-<p>npm</p>
-</li>
-<li>
-<p>Peacock</p>
-</li>
-<li>
-<p>Prettier</p>
-</li>
-<li>
-<p>Winter is Coming</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tutorial_tour_of_heroes">2.4. Tutorial: Tour of Heroes</h3>
+<h3 id="_tutorial_tour_of_heroes">1.1. Tutorial: Tour of Heroes</h3>
 <div class="paragraph">
 <p>Este tutorial ha sido elaborado y mejorado desde la versión 2 de Angular, por lo que es uno de los mejores recursos para aprender Angular. Nosotros lo utilizaremos también como base para los proyectos que realizaremos.</p>
 </div>
@@ -944,18 +746,36 @@ v16.14.0</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_actividades">3. Actividades</h2>
+<h2 id="_actividades">2. Actividades</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_realizar_la_primera_parte_del_tour_of_heroes">3.1. Realizar la primera parte del Tour of Heroes</h3>
+<h3 id="_realizar_la_sección_get_data_from_a_server_del_tour_of_heroes">2.1. Realizar la sección <code>Get Data from a Server</code> del Tour of Heroes</h3>
 <div class="paragraph">
-<p>Se trata de realizar el tutorial hasta la sección <code>5. Add Navigation</code> incluida.</p>
+<p>Se trata de realizar la sección <code>6. Get Data from a Server</code> del tutorial con unos pequeños cambios para poder utilizar nuestro backend.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>No realizar la parte de <code>Simulate a data server`</code></p>
+</li>
+<li>
+<p>En la sección <code>Heroes and HTTP</code> utilizar la dirección del servidor local <strong>Spring Boot</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript">     <span class="kr">private</span> <span class="nx">heroesUrl</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">http:/localhost:8080/api/heroes</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// URL to web api</span></code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_añadir_un_listado_de_super_poderes_a_los_héroes">3.2. Añadir un listado de super poderes a los héroes</h3>
+<h3 id="_obtener_la_imagen_de_los_super_héroes_de_la_api_de_marvel">2.2. Obtener la imagen de los super héroes de la api de Marvel.</h3>
 <div class="paragraph">
-<p>Se trata de añadir un listado editable de super poderes en la ficha de cada héroe.</p>
+<p>Se trata de añadir una imagén en base al nombre del super heroe.</p>
+</div>
+<div class="paragraph">
+<p>Información de como usar la API: <a href="https://medium.com/zurvin/jugando-con-la-api-de-marvel-y-javascript-c3afad762c2c" class="bare">https://medium.com/zurvin/jugando-con-la-api-de-marvel-y-javascript-c3afad762c2c</a></p>
 </div>
 </div>
 </div>

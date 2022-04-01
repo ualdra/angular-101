@@ -1,0 +1,69 @@
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:doctype: book
+:imagesdir: ./images
+:source-highlighter: rouge
+
+////
+Nombre - Titulo
+////
+# Angular + Spring Boot + REST
+Servicios HTTP 
+Paco García <paco.garcia@ual.es>
+
+image::rest.webp[]
+
+// Modo no numerado de apartados
+:numbered!: 
+
+
+[abstract]
+== Resumen
+
+En este tutorial se explica como añadir persistencia de los datos del famoso tutorial *Tour of Heroes* con un backend en *Spring Boot*.
+
+.Objetivos
+
+* Conocer los servicios HTTP en Angular.
+* Añadir, editar y borrar heroes a través de HTTP.
+* Conectar una aplicación Angular con un backend Spring Boot.
+
+// Modo numerado
+:numbered:
+== Desarrollo
+[NOTE]
+====
+Para la realización del tutorial es necesaria tener hechas las actividades de Angular y Spring Boot.
+====
+
+
+=== Tutorial: Tour of Heroes
+
+Este tutorial ha sido elaborado y mejorado desde la versión 2 de Angular, por lo que es uno de los mejores recursos para aprender Angular. Nosotros lo utilizaremos también como base para los proyectos que realizaremos.
+
+image::https://angular.io/generated/images/guide/toh/nav-diagram.png[]
+
+Se trata de una aplicación que permite gestionar un listado de héroes y verlos en detalle. Empezaremos con los héroes que se transformarán al dominio de los diferentes proyectos.
+
+El tutorial se encuentra en https://angular.io/tutorial
+
+== Actividades
+
+=== Realizar la sección `Get Data from a Server` del Tour of Heroes
+
+Se trata de realizar la sección `6. Get Data from a Server` del tutorial con unos pequeños cambios para poder utilizar nuestro backend.
+
+1. No realizar la parte de `Simulate a data server``
+2. En la sección `Heroes and HTTP` utilizar la dirección del servidor local *Spring Boot*.
+
+```javascript
+     private heroesUrl = 'http:/localhost:8080/api/heroes';  // URL to web api
+```
+
+=== Obtener la imagen de los super héroes de la api de Marvel.
+
+Se trata de añadir una imagén en base al nombre del super heroe.
+
+Información de como usar la API: https://medium.com/zurvin/jugando-con-la-api-de-marvel-y-javascript-c3afad762c2c
