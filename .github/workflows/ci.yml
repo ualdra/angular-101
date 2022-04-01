@@ -18,11 +18,11 @@ jobs:
       - name: Install dependencies
         run: |
           apk update
-          apk add rsync 
+          apk add rsync
 
       - name: Build Docs
         run: |
-          asciidoctor index.adoc
+          asciidoctor *.adoc
           find . -name .adoc -exec rm -rf '{}' \;
 
       - name: Deploy 🚀
